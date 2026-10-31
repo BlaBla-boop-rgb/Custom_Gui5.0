@@ -12,7 +12,8 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: current
-      - run: gradle build
+          cache-read-only: false
+      - run: gradle build --refresh-dependencies
       - uses: actions/upload-artifact@v4
         with:
           name: customgui-jar

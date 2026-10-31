@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.5-SNAPSHOT'
+    id 'fabric-loom' version '1.6-SNAPSHOT' // Verwende 1.6 für neuere Versionen
     id 'maven-publish'
 }
 
@@ -15,7 +15,8 @@ repositories {
 }
 
 dependencies {
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    // Trage hier exakt deine Minecraft-Version ein (z. B. "26.1" oder die entsprechende Snapshot-Version)
+    minecraft "com.mojang:minecraft:1.20.4" // Passe dies auf deine Zielversion an
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
@@ -31,7 +32,7 @@ processResources {
 }
 
 tasks.withType(JavaCompile).configureEach {
-    it.options.release = 17
+    it.options.release = 17 // Oder Java 21, falls 26.1 Java 21 erfordert
 }
 
 java {
